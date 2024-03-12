@@ -15,9 +15,9 @@ app.get('/home', function (req, res) {
 
 function sanitizeHtml(rawHtml) {
   return rawHtml
-    .replace('<', '&lt;')
-    .replace('&', '&amp;')
-    .replace('>', '&gt;');
+    .replaceAll('<', '&lt;')
+    .replaceAll('&', '&amp;')
+    .replaceAll('>', '&gt;');
 }
 
 app.listen(LISTEN_PORT, function (err) {
