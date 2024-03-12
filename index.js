@@ -8,8 +8,17 @@ app.get('/', function (req, res) {
 });
 
 app.get('/home', function (req, res) {
-  res.contentType('text/html').send("<h1>Welcome to Home Page</h1>");
+  const rawBody = req.query.body || '';
+  const body = sanitizeHtml(rawBody)
+  res.contentType('text/html').send(`<h1>Welcome to Home Page</h1><p>${body}</p>`);
 });
+
+function sanitizeHtml(rawHtml) {
+  return rawHtml
+    .replace('<', '&lt;')
+    .replace('&', '&amp;')
+    .replace('>', '&gt;');
+}
 
 app.listen(LISTEN_PORT, function (err) {
   if (err) console.log(err);
