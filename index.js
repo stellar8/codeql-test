@@ -4,7 +4,8 @@ const LISTEN_PORT = 8080;
 const app = express();
 
 app.get('/', function (req, res) {
-  res.redirect('/home');
+  const redirectUrl = req.query.redirectUrl || '/home';
+  res.redirect(redirectUrl);
 });
 
 app.get('/home', function (req, res) {
