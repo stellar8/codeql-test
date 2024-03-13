@@ -13,6 +13,7 @@ app.get('/home', function (req, res) {
   res.contentType('text/html').send(`<h1>Welcome to Home Page</h1><p>${body}</p>`);
 });
 
+// comment
 function sanitizeHtml(rawHtml) {
   return rawHtml
     .replace('<', '&lt;')
