@@ -14,7 +14,7 @@ app.get('/home', function (req, res) {
 });
 
 function sanitizeHtml(rawHtml) {
-  return rawHtml
+  return rawHtml // some code comment just so I can change this line
     .replaceAll('<', '&lt;')
     .replaceAll('&', '&amp;')
     .replaceAll('>', '&gt;');
