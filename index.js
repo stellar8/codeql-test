@@ -14,10 +14,10 @@ app.get('/home', function (req, res) {
 });
 
 function sanitizeHtml(rawHtml) {
-  return rawHtml
-    .replace('<', '&lt;')
-    .replace('&', '&amp;')
-    .replace('>', '&gt;');
+  return rawHtml // some code comment just so I can change this line
+    .replaceAll('<', '&lt;')
+    .replaceAll('&', '&amp;')
+    .replaceAll('>', '&gt;');
 }
 
 app.listen(LISTEN_PORT, function (err) {
